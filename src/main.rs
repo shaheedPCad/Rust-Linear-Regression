@@ -5,10 +5,10 @@ struct LinearRegression{
 }
 
 impl LinearRegression{
-    fn get_mean(&self) -> u32{
+    fn get_mean(&self) -> f32 {
         let sum: u32 = self.data.iter().sum();
         let length: usize = self.data.len();
-        sum / length;
+        (sum as f32) / (length as f32)
     }
 }
 
@@ -20,10 +20,8 @@ fn main(){
         label
     };
 
-    let sum: u32 = regress.get_mean();
+    let mean: f32 = regress.get_mean();
 
 
-    println!("Linear regression {}", sum);
-
-
+    println!("Linear regression {}", mean);
 }
